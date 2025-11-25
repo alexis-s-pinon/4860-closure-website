@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Project Closure Document</title>
+  <meta name="description" content="Comprehensive Project Closure Document template — code-fillable version." />
+  <meta name="color-scheme" content="light dark">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&family=Fraunces:opsz,wght@9..144,600&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --bg: #0b0c10;
+      --card: #10121a;
+      --text: #e8eaf0;
+      --muted: #a8b2c1;
+      --accent: #7c5cff;
+      --accent-2: #22d3ee;
+      --accent-3: #f59e0b;
+      --ring: rgba(124,92,255,0.45);
+      --shadow: 0 12px 40px rgba(0,0,0,.45);
+      --radius: 20px;
+      --grid: rgba(255,255,255,.04);
+      --table-border: color-mix(in oklab, var(--muted) 28%, transparent);
+      --table-row: color-mix(in oklab, var(--card) 92%, transparent);
+    }
+    @media (prefers-color-scheme: light){
+      :root{
+        --bg:#f7f7fb;
+        --card:#ffffff;
+        --text:#0b1220;
+        --muted:#5a6784;
+        --accent:#5b3df7;
+        --accent-2:#0ea5e9;
+        --accent-3:#d97706;
+        --ring: rgba(91,61,247,.25);
+        --shadow: 0 12px 40px rgba(10, 20, 40, .10);
+        --grid: rgba(15,23,42,.06);
+        --table-border: color-mix(in oklab, var(--muted) 30%, transparent);
+        --table-row: color-mix(in oklab, var(--card) 96%, transparent);
+      }
+    }
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0;
+      font: 16px/1.6 "Inter", system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji","Segoe UI Emoji";
+      color:var(--text);
+      background:
+        radial-gradient(1200px 600px at 10% -20%, color-mix(in oklab, var(--accent) 15%, transparent), transparent 40%),
+        radial-gradient(1200px 800px at 110% 10%, color-mix(in oklab, var(--accent-2) 18%, transparent), transparent 45%),
+        linear-gradient(0deg, var(--bg), var(--bg));
+      background-attachment: fixed;
+      letter-spacing:.2px;
+    }
+    .grid-overlay::before{
+      content:""; position:fixed; inset:0; pointer-events:none; z-index:0;
+      background:
+        linear-gradient(transparent 24px, var(--grid) 25px) 0 0/26px 26px,
+        linear-gradient(90deg, transparent 24px, var(--grid) 25px) 0 0/26px 26px;
+      mask-image: radial-gradient(1000px 600px at 50% -10%, black, transparent 80%);
+    }
+    a{color:inherit;text-decoration:none}
+    .container{max-width:1100px;margin:0 auto;padding:28px 20px 84px; position:relative; z-index:1}
+    header{
+      position:sticky;top:0;z-index:50;
+      backdrop-filter:saturate(180%) blur(12px);
+      background: color-mix(in oklab, var(--bg) 80%, transparent);
+      border-bottom:1px solid color-mix(in oklab, var(--muted) 20%, transparent);
+    }
+    .nav{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:14px 0;}
+    .brand{display:flex;align-items:center;gap:12px}
+    .logo{
+      inline-size:40px; block-size:40px; border-radius:14px;
+      background: conic-gradient(from 180deg, var(--accent), var(--accent-2), var(--accent-3), var(--accent));
+      display:grid; place-items:center; color:white; font-weight:900; font-family:"Fraunces", serif;
+      letter-spacing:.5px; font-size:20px; box-shadow: var(--shadow); animation: hue 14s linear infinite;
+    }
+    @keyframes hue { to { filter:hue-rotate(360deg) } }
+    .brand-title{font-weight:800; font-size:18px}
+    .brand-sub{color:var(--muted); font-size:12px; margin-top:-4px}
+    .navlinks{display:flex;gap:10px;flex-wrap:wrap}
+    .chip{padding:8px 12px;border-radius:999px;color:var(--text);opacity:.95;border:1px solid color-mix(in oklab, var(--muted) 28%, transparent);transition: transform .16s ease, box-shadow .2s ease, background .2s ease;}
+    .chip:hover,.chip:focus-visible{outline:none; transform: translateY(-2px); box-shadow:0 0 0 6px var(--ring); background:color-mix(in oklab, var(--card) 90%, transparent);}
+    .eyebrow{font-size:12px;letter-spacing:.28em;text-transform:uppercase;color:var(--muted)}
+    .page-title{
+      font-family:"Fraunces", serif; font-size: clamp(28px, 5vw, 44px); line-height:1.05;margin:.2rem 0 .4rem;
+      background: linear-gradient(90deg, var(--text), color-mix(in oklab, var(--accent) 60%, var(--text)));
+      -webkit-background-clip: text; background-clip: text; color: transparent;
+    }
+    .section{
+      margin-top:24px;
+      background:linear-gradient(180deg, color-mix(in oklab, var(--card) 94%, transparent), var(--card));
+      border:1px solid color-mix(in oklab, var(--muted) 24%, transparent);
+      border-radius: var(--radius);
+      padding:18px; box-shadow: var(--shadow);
+    }
+    .section h2{ margin:2px 0 10px; font-size:20px; font-weight:800; }
+    .help{color:var(--muted); font-size:14px; margin-top:-6px; margin-bottom:8px}
+    .kv{display:grid; grid-template-columns:220px 1fr; gap:10px; padding:10px 12px; border-radius:12px; background:var(--table-row); border:1px solid var(--table-border);}
+    .kv .k{color:var(--muted); font-weight:600}
+    .kv .v{font-weight:600}
+    .kv + .kv{margin-top:8px}
+    table{ width:100%; border-collapse: collapse; background: var(--table-row); border-radius:14px; overflow:hidden; }
+    thead th{ text-align:left; font-size:13px; letter-spacing:.15em; text-transform:uppercase; color:var(--muted); background: color-mix(in oklab, var(--card) 92%, transparent); border-bottom:1px solid var(--table-border); padding:10px 12px; }
+    tbody td{ border-bottom:1px solid var(--table-border); padding:10px 12px; }
+    tbody tr:last-child td{ border-bottom:none }
+    .footer{margin-top:40px;padding-top:18px;border-top:1px dashed color-mix(in oklab, var(--muted) 25%, transparent);display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;color:var(--muted)}
+    .visually-hidden{position:absolute!important;height:1px;width:1px;overflow:hidden;clip:rect(1px,1px,1px,1px);white-space:nowrap}
+    :focus-visible{outline:none; box-shadow:0 0 0 6px var(--ring)}
+    @media print{
+      header{display:none}
+      .section{break-inside:avoid}
+      body{background:white}
+      a[href]:after{content:""}
+    }
+  </style>
+</head>
+<body class="grid-overlay">
+  <a class="visually-hidden" href="#main">Skip to content</a>
+  <header>
+    <div class="container nav">
+      <div class="brand">
+        <div class="logo" aria-hidden="true">P</div>
+        <div>
+          <div class="brand-title">Project Final Website</div>
+          <div class="brand-sub">Closure Documentation</div>
+        </div>
+      </div>
+      <nav class="navlinks" aria-label="Primary">
+        <a class="chip" href="index.html">← Back to Main</a>
+        <a class="chip" href="project-charter.html">Charter</a>
+        <a class="chip" href="status-reports.html">Status</a>
+        <a class="chip" href="project-closure.html" aria-current="page">Closure</a>
+        <a class="chip" href="star-stories.html">STAR</a>
+        <a class="chip" href="stakeholder-interviews.html">Interviews</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main" class="container">
+    <div class="eyebrow">Comprehensive Project Closure</div>
+    <h1 class="page-title">Project Closure Document</h1>
+
+    <!-- To fill in: replace the placeholders below directly in HTML -->
+    <section class="section" id="project-info">
+      <h2>1. Project Information</h2>
+      <div class="help">Edit placeholders directly in the code.</div>
+      <div class="kv"><div class="k">Project Title</div><div class="v">Exploring Information Systems Careers</div></div>
+      <div class="kv"><div class="k">Project Manager</div><div class="v">Alexis Pinon</div></div>
+      <div class="kv"><div class="k">Project Description</div><div class="v">In order to explore careers in IS, I will create a digital portfolio to develop my current skills, tools, and experience. Additionally, I will pursue new certifications and small projects to add to a digital portfolio website that I will create. These elements, along with reflections on my work, will work toward helping me decide what career in the information systems field will best suit me.</div></div>
+      <div class="kv"><div class="k">Project Closure Type</div><div class="v">Normal</div></div>
+      <div class="kv"><div class="k">Closing Summary</div><div class="v">My project is concluding because all deliverables have been completed, and the end of the semester has come.</div></div>
+    </section>
+
+    <section class="section" id="deliverables">
+      <h2>2. Deliverables Summary</h2>
+      <div class="help">List all major deliverables and track their completion status.</div>
+      <table aria-label="Deliverables table">
+        <thead>
+          <tr><th>Deliverable Name</th><th>Original Definition of Done</th><th>Actual Progress</th><th>Status</th></tr>
+        </thead>
+        <tbody>
+          <!-- Duplicate <tr> as needed -->
+          <tr><td>Business Analysis</td><td>The end result will be an analysis for a business that they can use to take action to improve an area of their operations.</td><td>Completed</td><td>Done</td></tr>
+          <tr><td>Database Project</td><td>When completed, I will have a relational database to add to my digital portfolio.</td><td>Completed</td><td>Done</td></tr>
+          <tr><td>Program Management Research</td><td>The end result of this deliverable will be a page that contains the start-to-finish process of problem management.</td><td>Completed</td><td>Done</td></tr>
+          <tr><td>Website Development</td><td>A completed website that can be clicked through and has clear navigation and pages.</td><td>Completed</td><td>Done</td></tr>
+
+        </tbody>
+      </table>
+    </section>
+
+    <section class="section" id="change-log">
+      <h2>3. Change Log</h2>
+      <div class="help">Summarize all scope changes made during the project.</div>
+      <table aria-label="Change log table">
+        <thead>
+          <tr><th>Change No</th><th>Change Date</th><th>Change</th><th>Reason for Change</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>001</td><td>mm/dd/yy</td><td>Added analytics dashboard</td><td>Stakeholder request for KPIs</td></tr>
+          <tr><td>002</td><td>mm/dd/yy</td><td>Reduced device support</td><td>Performance constraints</td></tr>
+        </tbody>
+      </table>
+    </section>
+
+    <section class="section" id="performance">
+      <h2>4. Performance Analysis</h2>
+      <div class="help">Budget and schedule performance summaries.</div>
+      <div class="kv"><div class="k">4.1 Budget Performance</div><div class="v">I did not plan to spend money on this project, and I have succeded in that goal.</div></div>
+      <div class="kv"><div class="k">4.2 Schedule Performance</div><div class="v">Through the course of the project, my schedule was delayed several times. I had a few delivereable that were delayed due to changes in project goal. I was able to finish on schedule, however, due to planned extra time at the end of the project.</div></div>
+    </section>
+
+    <section class="section" id="stakeholders">
+      <h2>5. Stakeholder Management</h2>
+      <div class="help">I could have improved in my stakeholder engagement. The main stakeholder from whom I received feedback was the professor. This was valuable as it changed the course of my project and gave it a more meaningful direction.</p>
+    </section>
+
+    <section class="section" id="risks">
+      <h2>6. Risk and Issue Summary</h2>
+      <div class="help">My biggest risk through this project was the late change of goal. This altered my deliverables and caused a delay in progress.</p>
+    </section>
+
+    <section class="section" id="wins">
+      <h2>7. What Went Well?</h2>
+      <div class="help">Successes and Best Practices</div>
+      <ul>
+        <li>I learned a lot from each deliverable that I completed.</li>
+        <li>I was able to develop and utilize skills that I have learned throughout the semester.</li>
+      </ul>
+    </section>
+
+    <section class="section" id="challenges">
+      <h2>8. What Didn't Go Well?</h2>
+      <div class="help">Challenges and Problems</div>
+      <ul>
+        <li>I struggled with keeping thinkgs on track when changes occured.</li>
+        <li>It was a challenge to find the right goal for me.</li>
+      </ul>
+    </section>
+
+    <section class="section" id="improvements">
+      <h2>9. What Would You Do Differently?</h2>
+      <div class="help">Improvements and Recommendations</div>
+      <ul>
+        <li>I would have spent more time earlier focused on what I wanted out of the project. THat may have allowed me to finalize my goal sooner.</li>
+      </ul>
+    </section>
+
+    <section class="section" id="lessons">
+      <h2>10. Lessons Learned Register</h2>
+      <div class="help">Fill these rows in the code. Duplicate as needed.</div>
+      <table aria-label="Lessons learned table">
+        <thead>
+          <tr><th>Date</th><th>SDLC Stage</th><th>What was the problem?</th><th>What was the consequence?</th><th>Lesson Learned Advice</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>mm/dd/yy</td><td>Planning</td><td>I should have spent more time planning what my goal would be.</td><td>This delayed my project execution greatly.</td><td>In the future, I will take more time to consider alternatives when planning a project.</td></tr>
+          <tr><td>mm/dd/yy</td><td>Execution</td><td>Delays in my project made execution of deliverables difficult.</td><td>I stuggled with completing tasks on time.</td><td>Keep consistant with progress to avoid a backlog of work.</td></tr>
+          <tr><td>mm/dd/yy</td><td>Monitoring</td><td>Problem description</td><td>Consequence</td><td>Advice nugget</td></tr>
+          <tr><td>mm/dd/yy</td><td>Closing</td><td>Problem description</td><td>Consequence</td><td>Advice nugget</td></tr>
+          <tr><td>mm/dd/yy</td><td>Execution</td><td>Problem description</td><td>Consequence</td><td>Advice nugget</td></tr>
+        </tbody>
+      </table>
+    </section>
+
+    <section class="section" id="takeaways">
+      <h2>11. Key Takeaways for Future Projects</h2>
+      <div class="help">Top 3–5 Actionable Insights</div>
+      <ul>
+        <li>Actionable insight #1</li>
+        <li>Actionable insight #2</li>
+        <li>Actionable insight #3</li>
+      </ul>
+    </section>
+
+    <section class="section" id="signoff">
+      <h2>12. Formal Sign-Off</h2>
+      <div class="help">Get feedback and sign-off from stakeholders confirming completion and satisfaction.</div>
+      <table aria-label="Sign-off table">
+        <thead><tr><th>Name</th><th>Role</th><th>Approval</th><th>Date</th><th>Notes</th></tr></thead>
+        <tbody>
+          <tr><td>—</td><td>—</td><td>Approved / Revisions Needed</td><td>mm/dd/yy</td><td>—</td></tr>
+        </tbody>
+      </table>
+    </section>
+
+    <section class="section" id="recognition">
+      <h2>13. Recognition</h2>
+      <p>Acknowledgment of team members' contributions and stakeholder support.</p>
+      <ul>
+        <li>Shout-out #1</li>
+        <li>Shout-out #2</li>
+      </ul>
+    </section>
+
+    <section class="section" id="whats-next">
+      <h2>14. What's Next</h2>
+      <p>Future plans, next steps, and how you'll apply what you learned.</p>
+      <ul>
+        <li>Next step #1</li>
+        <li>Next step #2</li>
+      </ul>
+    </section>
+
+    <footer class="footer" aria-label="Footer">
+      <div>© <span id="year"></span> Your Name — Semester Project</div>
+      <div><a href="index.html">Back to Main</a></div>
+    </footer>
+  </main>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
