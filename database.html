@@ -1,0 +1,501 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Project — Detail (Same Palette as Home)</title>
+  <style>
+    /* === Home-palette tokens (blue/gray) === */
+    :root {
+      --bg: #eff7ff;
+      /* page background */
+      --panel: #FFFFFF;
+      /* cards/panels */
+      --muted: #E5E7EB;
+      /* borders/lines */
+      --ink: #0F172A;
+      /* headings/body */
+      --slate: #334155;
+      /* secondary text */
+      --primary: #0078D7;
+      /* azure accent */
+      --primary-100: #E8F1FA;
+      /* light tint */
+      --primary-200: #D6E3F0;
+      /* pale border */
+      --shadow: 0 8px 24px rgba(15, 23, 42, .08);
+      --radius: 16px;
+    }
+
+    * {
+      box-sizing: border-box
+    }
+
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--ink);
+      font: 16px/1.55 system-ui, -apple-system, "Segoe UI", Roboto, Inter, Arial, sans-serif;
+    }
+
+    /* Keep the laptop layout, change only colors to match home */
+    header {
+      background: #E5E7EB;
+      /* flat like home */
+      border-bottom: 1px solid var(--muted);
+      color: var(--ink);
+      padding: 18px 60px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    header a {
+      color: var(--slate);
+      text-decoration: none;
+      margin-left: 20px;
+      font-size: 15px
+    }
+
+    header a:hover {
+      color: var(--ink)
+    }
+
+    .hero {
+      max-width: 1100px;
+      margin: 40px auto;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 40px;
+      align-items: center;
+      padding: 0 60px
+    }
+
+    .hero img {
+      width: 100%;
+      border-radius: var(--radius);
+      border: 1px solid var(--primary-200);
+      box-shadow: var(--shadow);
+      background: #fff
+    }
+
+    .hero h1 {
+      font-size: 36px;
+      margin-bottom: 10px;
+    }
+
+    .hero p {
+      color: var(--slate);
+      margin-bottom: 20px;
+    }
+
+    .cta {
+      background: var(--primary);
+      color: #fff;
+      padding: 12px 20px;
+      border-radius: 10px;
+      text-decoration: none;
+      font-weight: 600
+    }
+
+    .cta:hover {
+      filter: brightness(.95)
+    }
+
+    .info-grid {
+      max-width: 1400px;
+      margin: 0 auto;
+      padding: 0 60px;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px
+    }
+
+    .info-box {
+      background: var(--panel);
+      border: 1px solid var(--muted);
+      border-radius: var(--radius);
+      padding: 20px;
+      text-align: center;
+      box-shadow: var(--shadow)
+    }
+
+    .info-box h3 {
+      margin: 0 0 8px
+    }
+
+    .info-box p {
+      color: var(--slate);
+      font-size: 14px
+    }
+
+    .section {
+      max-width: 1100px;
+      margin: 40px auto;
+      padding: 0 60px;
+    }
+
+    .grid-2 {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px
+    }
+
+    .card {
+      background: var(--panel);
+      border: 1px solid var(--muted);
+      border-radius: var(--radius);
+      padding: 20px;
+      box-shadow: var(--shadow)
+    }
+
+    .card h3 {
+      margin-top: 0;
+    }
+
+    .meta {
+      color: var(--slate);
+      font-size: 15px;
+    }
+
+    .insight {
+      background: #F2F7FD;
+      border: 1px solid #CFE1F6;
+      border-radius: var(--radius);
+      padding: 20px;
+      margin-top: 30px;
+    }
+
+    .artifacts {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 20px;
+      margin-top: 20px
+    }
+
+    .artifacts-2 {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 20px;
+      margin-top: 20px
+    }
+
+    .artifact {
+      background: linear-gradient(135deg, #E8F1FA, #F7FAFF);
+      border: 0px dashed #BFD3EA;
+      border-radius: 10px;
+      height: 550px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #3E6FA4;
+      font-size: 14px;
+      font-weight: 600
+    }
+
+    .cta-banner {
+      margin-top: 40px;
+      padding: 20px;
+      width: 400px;
+      border-radius: var(--radius);
+      background: linear-gradient(180deg, rgba(0, 120, 215, .05), rgba(99, 102, 241, .04));
+      border: 1px solid var(--primary-200);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .primary-btn {
+      background: var(--primary);
+      color: #fff;
+      text-decoration: none;
+      padding: 12px 20px;
+      border-radius: 12px;
+      font-weight: 600
+    }
+
+    .primary-btn:hover {
+      filter: brightness(.95)
+    }
+
+    footer {
+      margin-top: 60px;
+      padding: 30px 60px;
+      background: #FFFFFF;
+      border-top: 1px solid var(--muted);
+      text-align: center;
+      color: var(--slate)
+    }
+
+    /* Responsive */
+    @media (max-width: 980px) {
+      .grid-2 {
+        grid-template-columns: 1fr
+      }
+
+      .info-grid {
+        grid-template-columns: repeat(2, 1fr)
+      }
+    }
+
+    .case-flow {
+      display: flex;
+      align-items: flex-start;
+      /* align image and text at the top */
+      gap: 15px;
+      /* space between image and text */
+    }
+
+    .case-flow img {
+      width: 150px;
+      height: auto;
+      border-radius: 4px;
+      /* optional */
+    }
+
+    .case-flow figcaption {
+      flex: 1;
+      /* allows text to take up remaining space */
+    }
+  </style>
+</head>
+
+<body>
+
+  <header>
+    <div style="font-weight:800;font-size:18px;">Information Systems Career Exploration</div>
+    <nav>
+      <a href="#">Home</a>
+      <a href="#">Projects</a>
+      <a href="#">About</a>
+    </nav>
+  </header>
+
+  <section class="hero">
+    <div>
+      <h1>Building a Database</h1>
+      <p>Role: Database Administrator • Tools: Draw.io, Oracle APEX • <br>Time: 2 weeks</p>
+      <p>Purpose: To gain experience in database development by creating a simple recipe storage database that uses relationsl database techniques.</p>
+      <!--a href="#" class="cta">View Dashboard</a-->
+    </div>
+    <img src="img/main-database.png" alt="Project Screenshot" height="250px" width="auto">
+  </section>
+
+  <!--section class="section">
+    <div>
+      <center>
+        <h2>Concept</h2>
+      </center>
+      <p>explanation of research and choices</p>
+      <img href src="img/placeholder.jfif" alt="Database Development Process" width="50%">
+    </div>
+  </section-->
+
+  <!--section class="section">
+    <article>
+      <div class="row">
+        <div>
+          <br>
+          <center>
+            <h2 style="margin:.25rem 0 0 0">Understanding the Business</h2><br>
+          </center>
+          <div class="case-flow">
+            <figure>
+              <img src="img/placeholder.jfif" width="300px">
+            </figure>
+            <figcaption><br><br>Evette Sarokhanian is the Center Director of the math learning center. She manages
+              the operations of the center and is responsible for the sucessful education of over 100 students.
+            </figcaption>
+          </div>
+          <p>
+          <h3>Interview Hightlights</h3>
+          </p>
+          <blockquote style="border-left:4px solid var(--primary);padding-left:1rem;margin:1rem 0">
+
+            <p><em><strong>What is the main purpose of the business?</strong> To educate kids and help them improve
+                their skills in math.</em></p>
+            <p><em><strong>What duties do you handle as the center director?</strong> I handle the kid’s education,
+                communication, progress updates, booking and handling meetings, staffing, training, inventory, and
+                outreach.</em></p>
+            <p><em><strong>Where do you experience slow downs in your daily work?</strong> Emails that ask hard
+                questions, progress updates, and managing the small tasks that keep the center running.</em></p>
+            <p><em><strong>What do you feel is the hardest part of your responsibilities?</strong> Making sure we don’t
+                run out of things and making sure the flow of operations is there. Not falling behind on communications
+                is also tough.</em></p>
+            <p><em><strong>What do you wish you could magically make happen?</strong> Probably the progress and teacher
+                emails. Also the inventory monitoring, that takes a long time to check everything.</em></p>
+            <p><em><strong>What are your current processeses for tracking inventory and communication?</strong> For
+                inventory, I just try to keep track in my head. Since it takes so much time to check
+                everything individually, it feels like a waste of time to have an employee check it when they could
+                spend that time teaching a student. I try to just kind of know around when
+                things runs out. But then it happens where I’m off and we run out of something. As for emails, currently
+                I wait until about 10 emails of the same type pile up and then do them all at once. I write up
+                customized messages for each individual email and attach the relevant files.</em></p>
+          </blockquote>
+    </article>
+
+    <div class="insight">
+      <strong>Career Insight:</strong> This project taught me that clarity in communication is as critical as
+      technical skill for a Business Analyst.
+    </div>
+
+  </section-->
+
+  <p>
+    <center>
+      <h2>Identifying and Defining</h2>
+      <h3>The first step was to identify the entities and attributes that would be necessary. Defining the Primary and
+        Foreign Keys came next.</h3>
+    </center>
+  </p>
+  <section class="info-grid">
+    <div class="info-box">
+      <h3>Entities</h3>
+      <p>Ingredient<br>
+        Cookware<br>
+        Recipe<br>
+      </p>
+    </div>
+    <!--div class="info-box">
+      <h3>Attributes</h3>
+      <p>Ingredient_ID<br>
+Ingredient_Name<br>
+Ingredient_Calorie<br>
+Ingredient_Type<br>
+Ingredient_Amount<br>
+Ingredient_Unit<br>
+Recipe_ID<br>
+Recipe_Name<br>
+Recipe_Cuisine<br>
+Recipe_Time<br>
+Recipe_Directions<br>
+Recipe_Img<br>
+Recipe_Img_Data<br>
+Cookware_ID<br>
+Cookware_Name<br>
+Cookware_Type<br>
+Cookware_Img<br>
+Cookware_Img_Data<br>
+</p>
+    </div-->
+    <div class="info-box">
+      <h3>Composite Tables</h3>
+      <p>Ingred-Recipe<br>
+        Cookware-Recipe</p>
+    </div>
+    <div class="info-box">
+      <h3>Primary and Foreign Keys</h3>
+      <p>Ingredient_ID<br>
+        Cookware_ID<br>
+        Recipe_ID</p>
+    </div>
+  </section>
+  <br><br>
+  <section class="section">
+    <center>
+      <h2>Entity Relationship Diagram</h2></center>
+      <div class="grid-2">
+      <div><br><br><img src="img/database-erd.drawio.svg" width="100%"></div>
+      <div><p>Next I mapped out how entities would be logically related. The focus was on understanding what data would need
+        to interact with other data, while keeping data integrity in mind. I started by creating the tables that were
+        most vital to the data: Ingredient, Recipe, and Cookware.<br><br>From here, I worked to understand how these tables
+        would interact with each other. The Recipe table would have to be able to access information about ingredients
+        and what cookware would be used for multiple recipes, so in order to prevent duplicates in the data, I created
+        composite tables, that allow for many recipes to access many ingredients as well as many cookware items.</p></div>
+        </div>
+      </section>
+  <br>
+
+  <section class="section">
+
+    <div class="info-box">
+      <h2>Queries</h2>
+      <p>After solidfying the relationships between tables using the Entity Relationship Diagram, I moved on to creating
+        the database in Oracle APEX using SQL queries. I started by making each table, which included specifying
+        attributes, data types, and constraints like the primary and foreign keys.</p>
+    </div><br>
+
+    <div class="grid-2">
+      <div class="artifact"><img src="img/cookware-table-query.png" width="450px"></div>
+      <div class="artifact"><img src="img/ingred-recipe-table-query.png" width="450px"></div><br>
+    </div>
+
+    <div class="info-box">
+      <p>The next steps were to insert data into the tables and verify everything with test queries.</p>
+    </div><br>
+    
+      <div><img src="img/recipe-insert-query.png" width="1000px"></div><br>
+      <div><img src="img/full-recipe-query.png" width="1000px"></div>
+    
+  </section>
+
+  <!--section class="section">
+    <center>
+      <h2>Planning the App</h2>
+    </center>
+    <div class="grid-2">
+      <div class="artifacts-2">
+        <h3>Wireframes</h3>
+      </div>
+      <div class="artifacts-2">
+        <h3>Mockups</h3>
+      </div>
+      <div class="artifacts-2"><img src="img/placeholder.jfif" height=auto></div>
+      <div class="artifacts-2"><img src="img/placeholder.jfif" height=auto></div>
+    </div>
+  </section-->
+
+  <!--section class="section">
+    <center>
+      <h2>Oracle APEX App</h2>
+      <img src="img/placeholder.jfif" width="100%">
+    </center>
+    <p>After creating the webpage for my project, I integrated it with the business's Google accounts so that it would
+      work seamlessly with existing operations. An important requirement of the stakeholders was that my solution be as
+      simple, intuitive, and integrated as possible.</p>
+  </section-->
+
+  <section class="section">
+    <div class="info-box"><center>
+      <h2>Outcome</h2>
+    </center>
+    <p>The outcome of my exploration in database creation was a simple database that takes ingredients, quantities, cookware, and directions, then compiles everything into complete recipes.<br></div><br>
+      <img src="img/outcome-full-database.png" width=100%>
+    </p>
+  </section>
+
+  <section class="section">
+    <center>
+      <div class="cta-banner">
+        <div><!--strong>Ready to explore more?</strong><br--><span style="color:var(--slate)">Check out my next
+            project</span></div>
+        <a href="#" class="primary-btn">Next Project →</a>
+      </div>
+    </center>
+    <!--br><br><br><br>
+    <div class="grid-2">
+      <div class="card">
+        <h3>Approach</h3>
+        <p class="meta">Interviewed 5 stakeholders, documented KPIs, and designed visual reports.</p>
+      </div>
+      <div class="card">
+        <h3>Data & Methods</h3>
+        <p class="meta">Used SQL joins, pivot tables, and conditional formatting for performance clarity.</p>
+      </div>
+      <div class="card">
+        <h3>Findings</h3>
+        <p class="meta">Key delays stemmed from inconsistent data entry.</p>
+      </div>
+      <div class="card">
+        <h3>Impact</h3>
+        <p class="meta">Improved decision-making transparency across the team.</p>
+      </div>
+    </div-->
+  </section>
+
+  <footer>© 2025 Your Name · Information Systems Portfolio</footer>
+
+</body>
+
+</html>
