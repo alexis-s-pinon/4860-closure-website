@@ -4,7 +4,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Project — Database Development</title>
+  <title>Project — Website Design and Creation</title>
   <style>
     /* === Home-palette tokens (blue/gray) === */
     :root {
@@ -108,7 +108,25 @@
       margin: 0 auto;
       padding: 0 60px;
       display: grid;
-      grid-template-columns: repeat(3, 1fr);
+      grid-template-columns: repeat(4, 1fr);
+      gap: 20px
+    }
+
+    .info-grid2 {
+      max-width: 1400px;
+      margin: 0 auto;
+      padding: 0 60px;
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 20px
+    }
+
+    .info-grid1 {
+      max-width: 1400px;
+      margin: 0 auto;
+      padding: 0 60px;
+      display: grid;
+      grid-template-columns: repeat(1, 1fr);
       gap: 20px
     }
 
@@ -174,18 +192,11 @@
       margin-top: 20px
     }
 
-    .artifacts-2 {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 20px;
-      margin-top: 20px
-    }
-
     .artifact {
       background: linear-gradient(135deg, #E8F1FA, #F7FAFF);
-      border: 0px dashed #BFD3EA;
+      border: 1px dashed #BFD3EA;
       border-radius: 10px;
-      height: 550px;
+      height: 100px;
       display: flex;
       align-items: center;
       justify-content: center;
@@ -272,98 +283,116 @@
 
   <section class="hero">
     <div>
-      <h1>Building a Database</h1>
-      <p>Role: Database Administrator • Tools: Draw.io, Oracle APEX • <br>Time: 2 weeks</p>
-      <p>Purpose: To gain experience in database development by creating a simple recipe storage database that uses relational database techniques.</p>
-      <!--a href="#" class="cta">View Dashboard</a-->
+      <h1>Website Design & Creation</h1>
+      <p>Role: Website Designer • Tools: Figma, Visual Studio Code, HTML • Time: 6 weeks</p>
+      <p>Purpose: To design and develop a website from start to finish. The website will also serve to display other
+        projects.</p>
     </div>
-    <img src="img/main-database.png" alt="Project Screenshot" height="250px" width="auto">
+    <img src="img/home-page.png" alt="Project Screenshot" height="250px" width="auto">
   </section>
 
-  <p>
-    <center>
-      <h2>Identifying and Defining</h2>
-      <h3>The first step was to identify the entities and attributes that would be necessary. Defining the Primary and
-        Foreign Keys came next.</h3>
-    </center>
-  </p>
-  <section class="info-grid">
-    <div class="info-box">
-      <h3>Entities</h3>
-      <p>Ingredient<br>
-        Cookware<br>
-        Recipe<br>
-      </p>
-    </div>
-
-    <div class="info-box">
-      <h3>Composite Tables</h3>
-      <p>Ingred-Recipe<br>
-        Cookware-Recipe</p>
-    </div>
-    <div class="info-box">
-      <h3>Primary and Foreign Keys</h3>
-      <p>Ingredient_ID<br>
-        Cookware_ID<br>
-        Recipe_ID</p>
-    </div>
-  </section>
-  <br><br>
   <section class="section">
     <center>
-      <h2>Entity Relationship Diagram</h2></center>
-      <div class="grid-2">
-      <div><br><br><img src="img/database-erd.drawio.svg" width="100%"></div>
-      <div><p>Next I mapped out how entities would be logically related. The focus was on understanding what data would need
-        to interact with other data, while keeping data integrity in mind. I started by creating the tables that were
-        most vital to the data: Ingredient, Recipe, and Cookware.<br><br>From here, I worked to understand how these tables
-        would interact with each other. The Recipe table would have to be able to access information about ingredients
-        and what cookware would be used for multiple recipes, so in order to prevent duplicates in the data, I created
-        composite tables, that allow for many recipes to access many ingredients as well as many cookware items.</p></div>
+      <h2>Audience</h2>
+    </center>
+    <p>The first step in web design is to have a clear picture of the audience and what message is being told. This help
+      to ensure that the website serves it's purpose.
+      In the case of my website, my audience are students who are also insterested in looking into different information
+      systems careers. I geared this website toward outlining the background information and steps of a few different
+      careers.</p>
+  </section>
+
+  <section class="section">
+    <div>
+      <center>
+        <h2>Wireframes</h2>
+        <p>The next step was to work on wireframes for each page of my site.</p>
+        <div class="info-grid1">
+          <div class="info-box">
+            <img href src="img/wire-home.png" width="100%">
+            <p>Home Page</p>
+          </div>
         </div>
-      </section>
-  <br>
-
-  <section class="section">
-
-    <div class="info-box">
-      <h2>Queries</h2>
-      <p>After solidfying the relationships between tables using the Entity Relationship Diagram, I moved on to creating
-        the database in Oracle APEX using SQL queries. I started by making each table, which included specifying
-        attributes, data types, and constraints like the primary and foreign keys.</p>
-    </div><br>
-
-    <div class="grid-2">
-      <div class="artifact"><img src="img/cookware-table-query.png" width="450px"></div>
-      <div class="artifact"><img src="img/ingred-recipe-table-query.png" width="450px"></div><br>
+      </center><br>
+      <div class="info-grid2">
+        <div class="info-box">
+          <img href src="img/wire-ba.png" width="100%">
+          <p>Business Analysis</p>
+        </div>
+        <div class="info-box">
+          <img href src="img/wire-db.png" width="100%">
+          <p>Database</p>
+        </div>
+      </div><br>
+      <div class="info-grid2">
+        <div class="info-box">
+          <img href src="img/wire-pm.png" width="100%">
+          <p>Problem Management</p>
+        </div>
+        <div class="info-box">
+          <img href src="img/wire-web.png" width="100%">
+          <p>Website</p>
+        </div>
+      </div>
     </div>
-
-    <div class="info-box">
-      <p>The next steps were to insert data into the tables and verify everything with test queries.</p>
-    </div><br>
-    
-      <div><img src="img/recipe-insert-query.png" width="1000px"></div><br>
-      <div><img src="img/full-recipe-query.png" width="1000px"></div>
-  </section>
-
-  <section class="section">
-    <div class="info-box"><center>
-      <h2>Outcome</h2>
-    </center>
-    <p>The outcome of my exploration in database creation was a simple database that takes ingredients, quantities, cookware, and directions, then compiles everything into complete recipes.<br></div><br>
-      <img src="img/outcome-full-database.png" width=100%>
-    </p>
   </section>
 
   <section class="section">
     <center>
-      <div class="cta-banner">
-        <div><!--strong>Ready to explore more?</strong><br--><span style="color:var(--slate)">Check out my next
-            project</span></div>
-        <a href="problem.html" class="primary-btn">Next Project →</a>
+      <h2>Color Palette</h2>
+      <p>After wireframing, the next step was to determine my color palette. I chose to go with subtle, soft blues so that the page had a professional feel. This also served to ensure that the colors would not detract from the information and images on each page.</p>
+    </center>
+    <img src="img/color-palette.png" width="100%" border="1">
+  </section>
+
+  <section class="section">
+    <div>
+      <center>
+        <h2>Implementation</h2>
+        <p>Once the wireframes were complete, all that was left was to create the website using HTML and CSS.</p>
+        <div class="info-grid1">
+          <div class="info-box">
+            <img href src="img/code-home.png" width="100%">
+            <p>Home Page</p>
+          </div>
+        </div>
+      </center><br>
+      <div class="info-grid2">
+        <div class="info-box">
+          <img href src="img/code-ba.png" width="100%">
+          <p>Business Analysis</p>
+        </div>
+        <div class="info-box">
+          <img href src="img/code-db.png" width="100%">
+          <p>Database</p>
+        </div>
+      </div><br>
+      <div class="info-grid2">
+        <div class="info-box">
+          <img href src="img/code-pm.png" width="100%">
+          <p>Problem Management</p>
+        </div>
+        <div class="info-box">
+          <img href src="img/code-web.png" width="100%">
+          <p>Website</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <center>
+      <h2>Final Website</h2>
+    <p>The final result of this process is the website that you are currently on!</p>
+    </center>
+  </section>
+
+  <section class="section"><br><br>
+    <center>
+      <div>
+        <a href="ind-project.html" class="primary-btn">Home</a>
       </div>
     </center>
-
   </section>
 
   <footer>© 2025 Alexis Pinon · Information Systems Portfolio</footer>

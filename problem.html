@@ -4,7 +4,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Project — Database Development</title>
+  <title>Project — Problem Management</title>
   <style>
     /* === Home-palette tokens (blue/gray) === */
     :root {
@@ -73,7 +73,7 @@
     }
 
     .hero img {
-      width: 100%;
+      width: 50%;
       border-radius: var(--radius);
       border: 1px solid var(--primary-200);
       box-shadow: var(--shadow);
@@ -108,7 +108,16 @@
       margin: 0 auto;
       padding: 0 60px;
       display: grid;
-      grid-template-columns: repeat(3, 1fr);
+      grid-template-columns: repeat(4, 1fr);
+      gap: 20px
+    }
+
+    .info-grid2 {
+      max-width: 1400px;
+      margin: 0 auto;
+      padding: 0 60px;
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
       gap: 20px
     }
 
@@ -174,18 +183,11 @@
       margin-top: 20px
     }
 
-    .artifacts-2 {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 20px;
-      margin-top: 20px
-    }
-
     .artifact {
       background: linear-gradient(135deg, #E8F1FA, #F7FAFF);
-      border: 0px dashed #BFD3EA;
+      border: 1px dashed #BFD3EA;
       border-radius: 10px;
-      height: 550px;
+      height: 100px;
       display: flex;
       align-items: center;
       justify-content: center;
@@ -272,95 +274,120 @@
 
   <section class="hero">
     <div>
-      <h1>Building a Database</h1>
-      <p>Role: Database Administrator • Tools: Draw.io, Oracle APEX • <br>Time: 2 weeks</p>
-      <p>Purpose: To gain experience in database development by creating a simple recipe storage database that uses relational database techniques.</p>
-      <!--a href="#" class="cta">View Dashboard</a-->
+      <h1>Problem Management</h1>
+      <p>Role: Researcher • Time: 1 week</p>
+      <p>Purpose: To gain knowledge of problem management as a career including job titles, prospects, requirements, and
+        responsibilities.</p>
     </div>
-    <img src="img/main-database.png" alt="Project Screenshot" height="250px" width="auto">
+    <img src="img/pm-cover.png" alt="Project Screenshot" height="auto" style="float:right">
+  </section>
+
+  <section class="section">
+    <div>
+      <center>
+        <h2>What is Problem Management?</h2>
+      </center>
+      <p>A problem manager works to identify and manage IT problems that a company faces. They are typically the main
+        point to handle all problems that occur within the IT sector of a business. This role works to prevent problems
+        by finding underlying causes and creating solutions that will minimize the impact of future incidents.</p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div>
+      <center>
+        <h2>How Does it Impact a Business?</h2>
+      </center>
+      <p>Problem managers offer multiple benefits to a business including continuous service improvements, increased
+        productivity and satisfaction, decreased incident resolution times, minimized service disruptions, and decreased
+        costs associated with incidents.</p>
+    </div>
+    <div class="insight">
+      <strong>Some Personal Experience:</strong> While I haven't formally been a problem manager, I have had several
+      roles in which I informally worked through the general process of problem management.
+    </div>
+  </section>
+
+  <section class="section">
+    <div>
+      <center>
+        <h2>Career Path</h2>
+        <p>The career options for problem managers are varied, and have different levels of responsibility.</p>
+        <img href src="img/career-path.png" alt="Problem Manager Career Path Options" width="70%">
+      </center>
+    </div>
   </section>
 
   <p>
     <center>
-      <h2>Identifying and Defining</h2>
-      <h3>The first step was to identify the entities and attributes that would be necessary. Defining the Primary and
-        Foreign Keys came next.</h3>
+      <h2>Jobs Postings</h2>
     </center>
   </p>
   <section class="info-grid">
     <div class="info-box">
-      <h3>Entities</h3>
-      <p>Ingredient<br>
-        Cookware<br>
-        Recipe<br>
+      <h3>Global Incident Management Analyst</h3>
+      <p><strong>Bank of America</strong><br>Global Incident Management Coordinator is responsible for coordinating the restoration of an incident as quickly as possible following the enterprise policy and procedures for Incident Management.</p>
+    </div>
+    <div class="info-box">
+      <h3>Incident Manager</h3>
+      <p><strong>ResMed</strong><br>As a Major Incident Manager, you will be part of Global Technology Solutions (GTS), reporting into the Corporate Infrastructure & Services organization. This trusted, high-impact team drives operational resilience across Resmed through Incident Response, Change Enablement, and Problem Management.</p>
+    </div>
+    <div class="info-box">
+      <h3>Sr. Incident Response Manager</h3>
+      <p><strong>Kia Corporation</strong><br>The Senior Incident Response (IR) Manager provides strategic and operational leadership for detecting, responding to, and eradicating cyber threats targeting Kia America (KUS) and its affiliated entities.</p>
+    </div>
+    <div class="info-box">
+      <h3>Business Operations Manager - Incident Management</h3>
+      <p><strong>Walt Disney</strong><br>The Business Operations Manager - Incident Management will collaborate with various teams at The Walt Disney Company, including product, engineering, analytics, legal, customer service, and finance. This role involves translating technical root causes into business impacts and frequently engaging with senior executives through crafting concise memos and reports and responding promptly to executive inquiries.</p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div>
+      <center>
+        <h2>Qualities of Problem Managers</h2>
+      </center>
+      <div class="info-grid2">
+        <div class="info-box"><img src="img/skills.webp" width="100%"></div>
+        <div class="info-box"><img src="img/skills2.webp" width="100%"></div>
+      </div>
+    </div>
+  </section>
+
+  <p>
+    <center>
+      <h2>Pros and Cons</h2>
+    </center>
+  </p>
+  <section class="info-grid2">
+    <div class="info-box">
+      <h3>Pros</h3>
+      <p><br>Prevents major outages<br>
+        Boosts productivity<br>
+        Enhances customer satisfaction
       </p>
     </div>
-
     <div class="info-box">
-      <h3>Composite Tables</h3>
-      <p>Ingred-Recipe<br>
-        Cookware-Recipe</p>
-    </div>
-    <div class="info-box">
-      <h3>Primary and Foreign Keys</h3>
-      <p>Ingredient_ID<br>
-        Cookware_ID<br>
-        Recipe_ID</p>
+      <h3>Cons</h3>
+      <p><br>Faces challenges like constant multitasking<br>
+        Deals with frustrating vendors<br>
+        Manags high-pressure situations with limited resources</p>
     </div>
   </section>
-  <br><br>
+
   <section class="section">
     <center>
-      <h2>Entity Relationship Diagram</h2></center>
-      <div class="grid-2">
-      <div><br><br><img src="img/database-erd.drawio.svg" width="100%"></div>
-      <div><p>Next I mapped out how entities would be logically related. The focus was on understanding what data would need
-        to interact with other data, while keeping data integrity in mind. I started by creating the tables that were
-        most vital to the data: Ingredient, Recipe, and Cookware.<br><br>From here, I worked to understand how these tables
-        would interact with each other. The Recipe table would have to be able to access information about ingredients
-        and what cookware would be used for multiple recipes, so in order to prevent duplicates in the data, I created
-        composite tables, that allow for many recipes to access many ingredients as well as many cookware items.</p></div>
-        </div>
-      </section>
-  <br>
-
-  <section class="section">
-
-    <div class="info-box">
-      <h2>Queries</h2>
-      <p>After solidfying the relationships between tables using the Entity Relationship Diagram, I moved on to creating
-        the database in Oracle APEX using SQL queries. I started by making each table, which included specifying
-        attributes, data types, and constraints like the primary and foreign keys.</p>
-    </div><br>
-
-    <div class="grid-2">
-      <div class="artifact"><img src="img/cookware-table-query.png" width="450px"></div>
-      <div class="artifact"><img src="img/ingred-recipe-table-query.png" width="450px"></div><br>
-    </div>
-
-    <div class="info-box">
-      <p>The next steps were to insert data into the tables and verify everything with test queries.</p>
-    </div><br>
-    
-      <div><img src="img/recipe-insert-query.png" width="1000px"></div><br>
-      <div><img src="img/full-recipe-query.png" width="1000px"></div>
-  </section>
-
-  <section class="section">
-    <div class="info-box"><center>
-      <h2>Outcome</h2>
+      <h2>Is Problem Management a Good Career Option?</h2>
     </center>
-    <p>The outcome of my exploration in database creation was a simple database that takes ingredients, quantities, cookware, and directions, then compiles everything into complete recipes.<br></div><br>
-      <img src="img/outcome-full-database.png" width=100%>
-    </p>
+    <p>Overall, the role of a problem manager offers stability, good earning potential, and high impact by reducing downtime, improving service quality, and boosting customer satisfaction through root cause analysis and proactive fixes. It's a critical, future-proof role for analytical, people who enjoy solving complex issues and enhancing system reliability.</p>
   </section>
 
   <section class="section">
     <center>
       <div class="cta-banner">
-        <div><!--strong>Ready to explore more?</strong><br--><span style="color:var(--slate)">Check out my next
+        <div><span style="color:var(--slate)">Check out my next
             project</span></div>
-        <a href="problem.html" class="primary-btn">Next Project →</a>
+        <a href="website.html" class="primary-btn">Next Project →</a>
       </div>
     </center>
 

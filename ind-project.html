@@ -1,99 +1,201 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>IS Portfolio — Home</title>
-<style>
-  :root{
-    --bg:#F8FAFC;
-    --panel:#FFFFFF;
-    --muted:#E5E7EB;
-    --ink:#0F172A;           /* deep text */
-    --slate:#334155;         /* secondary text */
-    --primary:#0078D7;       /* azure accent */
-    --primary-100:#E8F1FA;   /* light tint */
-    --primary-200:#D6E3F0;
-    --shadow:0 8px 24px rgba(15,23,42,.08);
-    --radius:16px;
-  }
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Information Systems Project — Home</title>
+  <style>
+    :root {
+      --bg: #F8FAFC;
+      --panel: #FFFFFF;
+      --muted: #E5E7EB;
+      --ink: #0F172A;
+      /* deep text */
+      --slate: #334155;
+      /* secondary text */
+      --primary: #0078D7;
+      /* azure accent */
+      --primary-100: #E8F1FA;
+      /* light tint */
+      --primary-200: #D6E3F0;
+      --shadow: 0 8px 24px rgba(15, 23, 42, .08);
+      --radius: 16px;
+    }
 
-  *{box-sizing:border-box}
-  body{margin:0;background:var(--bg);color:var(--ink);
-       font:16px/1.55 system-ui,-apple-system,"Segoe UI",Roboto,Inter,Arial,sans-serif;}
-  .shell{min-height:100vh;display:grid;grid-template-columns:92px 1fr;}
+    * {
+      box-sizing: border-box
+    }
 
-  /* Left sidebar (like the screenshot layout) */
-  .side{
-    background:linear-gradient(180deg,#EDF2F7 0%,#E2E8F0 100%);
-    border-right:1px solid var(--muted);
-    padding:18px 12px; display:flex; flex-direction:column; gap:22px; align-items:center;
-  }
-  .badge{width:28px;height:28px;border-radius:50%;background:var(--primary);opacity:.9}
-  .rails{width:34px;height:4px;border-radius:4px;background:var(--muted);
-         box-shadow:0 12px 0 var(--muted),0 24px 0 var(--muted)}
-  .dot{width:12px;height:12px;border-radius:999px;background:var(--primary);opacity:.6}
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--ink);
+      font: 16px/1.55 system-ui, -apple-system, "Segoe UI", Roboto, Inter, Arial, sans-serif;
+    }
 
-  /* Top nav */
-  .top{display:flex;justify-content:space-between;align-items:center;padding:18px 26px}
-  .brand{font-weight:800}
-  .nav a{margin-left:18px;text-decoration:none;color:var(--slate)}
-  .nav a:hover{color:var(--ink)}
+    .shell {
+      min-height: 100vh;
+      display: grid;
+      grid-template-columns: 92px 1fr;
+    }
 
-  /* Main grid like the screenshot: left content, right vertical pills */
-  .hero{display:grid;grid-template-columns: 1.15fr .85fr;gap:28px;padding:6px 26px 24px}
-  .stage{
-    background:var(--panel);border:1px solid var(--muted);border-radius:var(--radius);box-shadow:var(--shadow);
-    padding:28px;
-  }
-  h1{margin:0 0 12px;font-size:40px;line-height:1.12}
-  .lines{margin-top:14px}
-  .line{height:6px;border-radius:6px;background:var(--primary-100);margin:12px 0 0;width:70%}
-  .subhead{margin-top:28px;font-weight:700}
-  .subline{height:6px;border-radius:6px;background:var(--primary-100);margin-top:10px;width:45%}
+    /* Left sidebar (like the screenshot layout) */
+    .side {
+      background: linear-gradient(180deg, #EDF2F7 0%, #E2E8F0 100%);
+      border-right: 1px solid var(--muted);
+      padding: 18px 12px;
+      display: flex;
+      flex-direction: column;
+      gap: 22px;
+      align-items: center;
+    }
 
-  /* Right stack of action buttons (blue, not orange) */
-  .stack{display:flex;flex-direction:column;gap:14px}
-  .pill{
-    background:var(--primary-100);
-    border:1px solid var(--primary-200);
-    color:var(--ink);
-    padding:16px 18px;border-radius:14px;font-weight:700;
-    box-shadow:var(--shadow); text-align:left;
-    transition:transform .15s ease, background .15s ease, box-shadow .15s ease;
-  }
-  .pill:hover{transform:translateY(-2px); background:#F0F6FC;}
+    .badge {
+      width: 28px;
+      height: 28px;
+      border-radius: 50%;
+      background: var(--primary);
+      opacity: .9
+    }
 
-  /* Footer */
-  footer{padding:22px 26px;color:var(--slate)}
-  @media (max-width: 920px){
-    .hero{grid-template-columns:1fr}
-  }
-</style>
+    .rails {
+      width: 34px;
+      height: 4px;
+      border-radius: 4px;
+      background: var(--muted);
+      box-shadow: 0 12px 0 var(--muted), 0 24px 0 var(--muted)
+    }
+
+    .dot {
+      width: 12px;
+      height: 12px;
+      border-radius: 999px;
+      background: var(--primary);
+      opacity: .6
+    }
+
+    /* Top nav */
+    .top {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 18px 26px
+    }
+
+    .brand {
+      font-weight: 800
+    }
+
+    .nav a {
+      margin-left: 18px;
+      text-decoration: none;
+      color: var(--slate)
+    }
+
+    .nav a:hover {
+      color: var(--ink)
+    }
+
+    /* Main grid like the screenshot: left content, right vertical pills */
+    .hero {
+      display: grid;
+      grid-template-columns: 1.15fr .85fr;
+      gap: 28px;
+      padding: 6px 26px 24px
+    }
+
+    .stage {
+      background: var(--panel);
+      border: 1px solid var(--muted);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      padding: 28px;
+    }
+
+    h1 {
+      margin: 0 0 12px;
+      font-size: 40px;
+      line-height: 1.12
+    }
+
+    .lines {
+      margin-top: 14px
+    }
+
+    .line {
+      height: 6px;
+      border-radius: 6px;
+      background: var(--primary-100);
+      margin: 12px 0 0;
+      width: 70%
+    }
+
+    .subhead {
+      margin-top: 28px;
+      font-weight: 700
+    }
+
+    .subline {
+      height: 6px;
+      border-radius: 6px;
+      background: var(--primary-100);
+      margin-top: 10px;
+      width: 45%
+    }
+
+    /* Right stack of action buttons (blue, not orange) */
+    .stack {
+      display: flex;
+      flex-direction: column;
+      gap: 14px
+    }
+
+    .pill {
+      background: var(--primary-100);
+      border: 1px solid var(--primary-200);
+      color: var(--ink);
+      padding: 16px 18px;
+      border-radius: 14px;
+      font-weight: 700;
+      box-shadow: var(--shadow);
+      text-align: left;
+      transition: transform .15s ease, background .15s ease, box-shadow .15s ease;
+    }
+
+    .pill:hover {
+      transform: translateY(-2px);
+      background: #F0F6FC;
+    }
+
+    /* Footer */
+    footer {
+      padding: 22px 26px;
+      color: var(--slate)
+    }
+
+    @media (max-width: 920px) {
+      .hero {
+        grid-template-columns: 1fr
+      }
+    }
+  </style>
 </head>
+
 <body>
   <div class="shell">
     <aside class="side">
       <div class="badge" title="Logo"></div>
-      <!--div class="rails" aria-hidden="true"></div>
-      <div class="dot" aria-hidden="true"></div>
-      <div class="dot" aria-hidden="true"></div-->
     </aside>
 
     <main>
       <header class="top">
         <div class="brand">Alexis Pinon</div>
-        <!--nav class="nav">
-          <a href="#">Home</a>
-          <a href="#projects">Projects</a>
-          <a href="#about">About</a>
-          <a href="#contact">Contact</a>
-        </nav-->
       </header>
 
       <section class="hero">
         <div class="stage">
-          <h1>Exploring Information Systems Careers<br>Through Real Projects</h1>
+          <h1>Exploring Information Systems Careers Through Real Projects</h1>
 
           <div class="lines">
             <div class="line" style="width:60%"></div>
@@ -101,20 +203,24 @@
           </div>
 
           <div class="subhead">What I Learned About IS Careers</div>
-          <div class="subline"></div>
-          <div class="subline" style="width:30%"></div>
+          <div>
+            <p>Through the course of the semester long project, I explored 4 main career paths that I am considering
+              pursuing, business analysis, database administration, problem management, and website development.<br>
+              Each project gave me a deeper insight into what it takes to work within that field and where my skills are
+              best suited. Additionally, from this project, I now have a portfolio that demonstrates my skills.</p>
+          </div>
         </div>
 
         <div class="stack">
           <a class="pill" href="business-analysis.html">Business Analysis</a>
           <a class="pill" href="database.html">Database Design</a>
-          <a class="pill" href="#pm">Problem Management Research</a>
-          <a class="pill" href="#site">Website</a>
+          <a class="pill" href="problem.html">Problem Management Research</a>
+          <a class="pill" href="website.html">Website</a>
         </div>
       </section>
 
-      <!--footer>© 2025 Alexis Pinon</footer-->
     </main>
   </div>
 </body>
+
 </html>
