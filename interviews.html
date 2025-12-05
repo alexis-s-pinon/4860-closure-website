@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Project Closure Document</title>
+  <meta name="description" content="Comprehensive Project Closure Document template — code-fillable version." />
+  <meta name="color-scheme" content="light dark">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&family=Fraunces:opsz,wght@9..144,600&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --bg: #0b0c10;
+      --card: #10121a;
+      --text: #e8eaf0;
+      --muted: #a8b2c1;
+      --accent: #7c5cff;
+      --accent-2: #22d3ee;
+      --accent-3: #f59e0b;
+      --ring: rgba(124,92,255,0.45);
+      --shadow: 0 12px 40px rgba(0,0,0,.45);
+      --radius: 20px;
+      --grid: rgba(255,255,255,.04);
+      --table-border: color-mix(in oklab, var(--muted) 28%, transparent);
+      --table-row: color-mix(in oklab, var(--card) 92%, transparent);
+    }
+    @media (prefers-color-scheme: light){
+      :root{
+        --bg:#f7f7fb;
+        --card:#ffffff;
+        --text:#0b1220;
+        --muted:#5a6784;
+        --accent:#5b3df7;
+        --accent-2:#0ea5e9;
+        --accent-3:#d97706;
+        --ring: rgba(91,61,247,.25);
+        --shadow: 0 12px 40px rgba(10, 20, 40, .10);
+        --grid: rgba(15,23,42,.06);
+        --table-border: color-mix(in oklab, var(--muted) 30%, transparent);
+        --table-row: color-mix(in oklab, var(--card) 96%, transparent);
+      }
+    }
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0;
+      font: 16px/1.6 "Inter", system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji","Segoe UI Emoji";
+      color:var(--text);
+      background:
+        radial-gradient(1200px 600px at 10% -20%, color-mix(in oklab, var(--accent) 15%, transparent), transparent 40%),
+        radial-gradient(1200px 800px at 110% 10%, color-mix(in oklab, var(--accent-2) 18%, transparent), transparent 45%),
+        linear-gradient(0deg, var(--bg), var(--bg));
+      background-attachment: fixed;
+      letter-spacing:.2px;
+    }
+    .grid-overlay::before{
+      content:""; position:fixed; inset:0; pointer-events:none; z-index:0;
+      background:
+        linear-gradient(transparent 24px, var(--grid) 25px) 0 0/26px 26px,
+        linear-gradient(90deg, transparent 24px, var(--grid) 25px) 0 0/26px 26px;
+      mask-image: radial-gradient(1000px 600px at 50% -10%, black, transparent 80%);
+    }
+    a{color:inherit;text-decoration:none}
+    .container{max-width:1100px;margin:0 auto;padding:28px 20px 84px; position:relative; z-index:1}
+    header{
+      position:sticky;top:0;z-index:50;
+      backdrop-filter:saturate(180%) blur(12px);
+      background: color-mix(in oklab, var(--bg) 80%, transparent);
+      border-bottom:1px solid color-mix(in oklab, var(--muted) 20%, transparent);
+    }
+    .nav{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:14px 0;}
+    .brand{display:flex;align-items:center;gap:12px}
+    .logo{
+      inline-size:40px; block-size:40px; border-radius:14px;
+      background: conic-gradient(from 180deg, var(--accent), var(--accent-2), var(--accent-3), var(--accent));
+      display:grid; place-items:center; color:white; font-weight:900; font-family:"Fraunces", serif;
+      letter-spacing:.5px; font-size:20px; box-shadow: var(--shadow); animation: hue 14s linear infinite;
+    }
+    @keyframes hue { to { filter:hue-rotate(360deg) } }
+    .brand-title{font-weight:800; font-size:18px}
+    .brand-sub{color:var(--muted); font-size:12px; margin-top:-4px}
+    .navlinks{display:flex;gap:10px;flex-wrap:wrap}
+    .chip{padding:8px 12px;border-radius:999px;color:var(--text);opacity:.95;border:1px solid color-mix(in oklab, var(--muted) 28%, transparent);transition: transform .16s ease, box-shadow .2s ease, background .2s ease;}
+    .chip:hover,.chip:focus-visible{outline:none; transform: translateY(-2px); box-shadow:0 0 0 6px var(--ring); background:color-mix(in oklab, var(--card) 90%, transparent);}
+    .eyebrow{font-size:12px;letter-spacing:.28em;text-transform:uppercase;color:var(--muted)}
+    .page-title{
+      font-family:"Fraunces", serif; font-size: clamp(28px, 5vw, 44px); line-height:1.05;margin:.2rem 0 .4rem;
+      background: linear-gradient(90deg, var(--text), color-mix(in oklab, var(--accent) 60%, var(--text)));
+      -webkit-background-clip: text; background-clip: text; color: transparent;
+    }
+    .section{
+      margin-top:24px;
+      background:linear-gradient(180deg, color-mix(in oklab, var(--card) 94%, transparent), var(--card));
+      border:1px solid color-mix(in oklab, var(--muted) 24%, transparent);
+      border-radius: var(--radius);
+      padding:18px; box-shadow: var(--shadow);
+    }
+    .section h2{ margin:2px 0 10px; font-size:20px; font-weight:800; }
+    .help{color:var(--muted); font-size:14px; margin-top:-6px; margin-bottom:8px}
+    .kv{display:grid; grid-template-columns:220px 1fr; gap:10px; padding:10px 12px; border-radius:12px; background:var(--table-row); border:1px solid var(--table-border);}
+    .kv .k{color:var(--muted); font-weight:600}
+    .kv .v{font-weight:600}
+    .kv + .kv{margin-top:8px}
+    table{ width:100%; border-collapse: collapse; background: var(--table-row); border-radius:14px; overflow:hidden; }
+    thead th{ text-align:left; font-size:13px; letter-spacing:.15em; text-transform:uppercase; color:var(--muted); background: color-mix(in oklab, var(--card) 92%, transparent); border-bottom:1px solid var(--table-border); padding:10px 12px; }
+    tbody td{ border-bottom:1px solid var(--table-border); padding:10px 12px; }
+    tbody tr:last-child td{ border-bottom:none }
+    .footer{margin-top:40px;padding-top:18px;border-top:1px dashed color-mix(in oklab, var(--muted) 25%, transparent);display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;color:var(--muted)}
+    .visually-hidden{position:absolute!important;height:1px;width:1px;overflow:hidden;clip:rect(1px,1px,1px,1px);white-space:nowrap}
+    :focus-visible{outline:none; box-shadow:0 0 0 6px var(--ring)}
+    @media print{
+      header{display:none}
+      .section{break-inside:avoid}
+      body{background:white}
+      a[href]:after{content:""}
+    }
+  </style>
+</head>
+<body class="grid-overlay">
+  <a class="visually-hidden" href="#main">Skip to content</a>
+  <header>
+    <div class="container nav">
+      <div class="brand">
+        <div class="logo" aria-hidden="true">P</div>
+        <div>
+          <div class="brand-title">Project Final Website</div>
+          <div class="brand-sub">Interviews</div>
+        </div>
+      </div>
+      <nav class="navlinks" aria-label="Primary">
+        <a class="chip" href="index.html">← Back to Main</a>
+        <a class="chip" href="ind-charter.html">Charter</a>
+        <a class="chip" href="status_updates.html">Status</a>
+        <a class="chip" href="closure-doc.html">Closure</a>
+        <a class="chip" href="star-stories.html">STAR</a>
+        <a class="chip" href="interviews.html" aria-current="page">Interviews</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main" class="container">
+    <div class="eyebrow">Stakeholder Interviews</div>
+    <h1 class="page-title">Interviews with Project Stakeholders</h1>
+
+
+    <section class="section" id="stakeholders">
+      <h2>Interviewee #1</h2>
+      <div class="help">Summary of responses from stakeholder #1.</p>
+    </section>
+
+    <section class="section" id="stakeholders">
+      <h2>Interviewee #2</h2>
+      <div class="help">Summary of responses from stakeholder #2.</p>
+    </section>
+    
+    <section class="section" id="stakeholders">
+      <h2>Interviewee #3</h2>
+      <div class="help">Summary of responses from stakeholder #3.</p>
+    </section>
+
+    <footer class="footer" aria-label="Footer">
+      <div>© <span id="year"></span> Alexis Pinon — Exploring Information System Careers</div>
+      <div><a href="index.html">Back to Main</a></div>
+    </footer>
+  </main>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
