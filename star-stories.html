@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -7,9 +8,11 @@
   <meta name="description" content="Comprehensive Project Closure Document template — code-fillable version." />
   <meta name="color-scheme" content="light dark">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&family=Fraunces:opsz,wght@9..144,600&display=swap" rel="stylesheet">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&family=Fraunces:opsz,wght@9..144,600&display=swap"
+    rel="stylesheet">
   <style>
-    :root{
+    :root {
       --bg: #0b0c10;
       --card: #10121a;
       --text: #e8eaf0;
@@ -17,105 +20,292 @@
       --accent: #7c5cff;
       --accent-2: #22d3ee;
       --accent-3: #f59e0b;
-      --ring: rgba(124,92,255,0.45);
-      --shadow: 0 12px 40px rgba(0,0,0,.45);
+      --ring: rgba(124, 92, 255, 0.45);
+      --shadow: 0 12px 40px rgba(0, 0, 0, .45);
       --radius: 20px;
-      --grid: rgba(255,255,255,.04);
+      --grid: rgba(255, 255, 255, .04);
       --table-border: color-mix(in oklab, var(--muted) 28%, transparent);
       --table-row: color-mix(in oklab, var(--card) 92%, transparent);
     }
-    @media (prefers-color-scheme: light){
-      :root{
-        --bg:#f7f7fb;
-        --card:#ffffff;
-        --text:#0b1220;
-        --muted:#5a6784;
-        --accent:#5b3df7;
-        --accent-2:#0ea5e9;
-        --accent-3:#d97706;
-        --ring: rgba(91,61,247,.25);
+
+    @media (prefers-color-scheme: light) {
+      :root {
+        --bg: #f7f7fb;
+        --card: #ffffff;
+        --text: #0b1220;
+        --muted: #5a6784;
+        --accent: #5b3df7;
+        --accent-2: #0ea5e9;
+        --accent-3: #d97706;
+        --ring: rgba(91, 61, 247, .25);
         --shadow: 0 12px 40px rgba(10, 20, 40, .10);
-        --grid: rgba(15,23,42,.06);
+        --grid: rgba(15, 23, 42, .06);
         --table-border: color-mix(in oklab, var(--muted) 30%, transparent);
         --table-row: color-mix(in oklab, var(--card) 96%, transparent);
       }
     }
-    *{box-sizing:border-box}
-    html,body{height:100%}
-    body{
-      margin:0;
-      font: 16px/1.6 "Inter", system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji","Segoe UI Emoji";
-      color:var(--text);
+
+    * {
+      box-sizing: border-box
+    }
+
+    html,
+    body {
+      height: 100%
+    }
+
+    body {
+      margin: 0;
+      font: 16px/1.6 "Inter", system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji";
+      color: var(--text);
       background:
         radial-gradient(1200px 600px at 10% -20%, color-mix(in oklab, var(--accent) 15%, transparent), transparent 40%),
         radial-gradient(1200px 800px at 110% 10%, color-mix(in oklab, var(--accent-2) 18%, transparent), transparent 45%),
         linear-gradient(0deg, var(--bg), var(--bg));
       background-attachment: fixed;
-      letter-spacing:.2px;
+      letter-spacing: .2px;
     }
-    .grid-overlay::before{
-      content:""; position:fixed; inset:0; pointer-events:none; z-index:0;
+
+    .grid-overlay::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      z-index: 0;
       background:
         linear-gradient(transparent 24px, var(--grid) 25px) 0 0/26px 26px,
         linear-gradient(90deg, transparent 24px, var(--grid) 25px) 0 0/26px 26px;
       mask-image: radial-gradient(1000px 600px at 50% -10%, black, transparent 80%);
     }
-    a{color:inherit;text-decoration:none}
-    .container{max-width:1100px;margin:0 auto;padding:28px 20px 84px; position:relative; z-index:1}
-    header{
-      position:sticky;top:0;z-index:50;
-      backdrop-filter:saturate(180%) blur(12px);
+
+    a {
+      color: inherit;
+      text-decoration: none
+    }
+
+    .container {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 28px 20px 84px;
+      position: relative;
+      z-index: 1
+    }
+
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      backdrop-filter: saturate(180%) blur(12px);
       background: color-mix(in oklab, var(--bg) 80%, transparent);
-      border-bottom:1px solid color-mix(in oklab, var(--muted) 20%, transparent);
+      border-bottom: 1px solid color-mix(in oklab, var(--muted) 20%, transparent);
     }
-    .nav{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:14px 0;}
-    .brand{display:flex;align-items:center;gap:12px}
-    .logo{
-      inline-size:40px; block-size:40px; border-radius:14px;
+
+    .nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      padding: 14px 0;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px
+    }
+
+    .logo {
+      inline-size: 40px;
+      block-size: 40px;
+      border-radius: 14px;
       background: conic-gradient(from 180deg, var(--accent), var(--accent-2), var(--accent-3), var(--accent));
-      display:grid; place-items:center; color:white; font-weight:900; font-family:"Fraunces", serif;
-      letter-spacing:.5px; font-size:20px; box-shadow: var(--shadow); animation: hue 14s linear infinite;
+      display: grid;
+      place-items: center;
+      color: white;
+      font-weight: 900;
+      font-family: "Fraunces", serif;
+      letter-spacing: .5px;
+      font-size: 20px;
+      box-shadow: var(--shadow);
+      animation: hue 14s linear infinite;
     }
-    @keyframes hue { to { filter:hue-rotate(360deg) } }
-    .brand-title{font-weight:800; font-size:18px}
-    .brand-sub{color:var(--muted); font-size:12px; margin-top:-4px}
-    .navlinks{display:flex;gap:10px;flex-wrap:wrap}
-    .chip{padding:8px 12px;border-radius:999px;color:var(--text);opacity:.95;border:1px solid color-mix(in oklab, var(--muted) 28%, transparent);transition: transform .16s ease, box-shadow .2s ease, background .2s ease;}
-    .chip:hover,.chip:focus-visible{outline:none; transform: translateY(-2px); box-shadow:0 0 0 6px var(--ring); background:color-mix(in oklab, var(--card) 90%, transparent);}
-    .eyebrow{font-size:12px;letter-spacing:.28em;text-transform:uppercase;color:var(--muted)}
-    .page-title{
-      font-family:"Fraunces", serif; font-size: clamp(28px, 5vw, 44px); line-height:1.05;margin:.2rem 0 .4rem;
+
+    @keyframes hue {
+      to {
+        filter: hue-rotate(360deg)
+      }
+    }
+
+    .brand-title {
+      font-weight: 800;
+      font-size: 18px
+    }
+
+    .brand-sub {
+      color: var(--muted);
+      font-size: 12px;
+      margin-top: -4px
+    }
+
+    .navlinks {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap
+    }
+
+    .chip {
+      padding: 8px 12px;
+      border-radius: 999px;
+      color: var(--text);
+      opacity: .95;
+      border: 1px solid color-mix(in oklab, var(--muted) 28%, transparent);
+      transition: transform .16s ease, box-shadow .2s ease, background .2s ease;
+    }
+
+    .chip:hover,
+    .chip:focus-visible {
+      outline: none;
+      transform: translateY(-2px);
+      box-shadow: 0 0 0 6px var(--ring);
+      background: color-mix(in oklab, var(--card) 90%, transparent);
+    }
+
+    .eyebrow {
+      font-size: 12px;
+      letter-spacing: .28em;
+      text-transform: uppercase;
+      color: var(--muted)
+    }
+
+    .page-title {
+      font-family: "Fraunces", serif;
+      font-size: clamp(28px, 5vw, 44px);
+      line-height: 1.05;
+      margin: .2rem 0 .4rem;
       background: linear-gradient(90deg, var(--text), color-mix(in oklab, var(--accent) 60%, var(--text)));
-      -webkit-background-clip: text; background-clip: text; color: transparent;
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
     }
-    .section{
-      margin-top:24px;
-      background:linear-gradient(180deg, color-mix(in oklab, var(--card) 94%, transparent), var(--card));
-      border:1px solid color-mix(in oklab, var(--muted) 24%, transparent);
+
+    .section {
+      margin-top: 24px;
+      background: linear-gradient(180deg, color-mix(in oklab, var(--card) 94%, transparent), var(--card));
+      border: 1px solid color-mix(in oklab, var(--muted) 24%, transparent);
       border-radius: var(--radius);
-      padding:18px; box-shadow: var(--shadow);
+      padding: 18px;
+      box-shadow: var(--shadow);
     }
-    .section h2{ margin:2px 0 10px; font-size:20px; font-weight:800; }
-    .help{color:var(--muted); font-size:14px; margin-top:-6px; margin-bottom:8px}
-    .kv{display:grid; grid-template-columns:220px 1fr; gap:10px; padding:10px 12px; border-radius:12px; background:var(--table-row); border:1px solid var(--table-border);}
-    .kv .k{color:var(--muted); font-weight:600}
-    .kv .v{font-weight:600}
-    .kv + .kv{margin-top:8px}
-    table{ width:100%; border-collapse: collapse; background: var(--table-row); border-radius:14px; overflow:hidden; }
-    thead th{ text-align:left; font-size:13px; letter-spacing:.15em; text-transform:uppercase; color:var(--muted); background: color-mix(in oklab, var(--card) 92%, transparent); border-bottom:1px solid var(--table-border); padding:10px 12px; }
-    tbody td{ border-bottom:1px solid var(--table-border); padding:10px 12px; }
-    tbody tr:last-child td{ border-bottom:none }
-    .footer{margin-top:40px;padding-top:18px;border-top:1px dashed color-mix(in oklab, var(--muted) 25%, transparent);display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;color:var(--muted)}
-    .visually-hidden{position:absolute!important;height:1px;width:1px;overflow:hidden;clip:rect(1px,1px,1px,1px);white-space:nowrap}
-    :focus-visible{outline:none; box-shadow:0 0 0 6px var(--ring)}
-    @media print{
-      header{display:none}
-      .section{break-inside:avoid}
-      body{background:white}
-      a[href]:after{content:""}
+
+    .section h2 {
+      margin: 2px 0 10px;
+      font-size: 20px;
+      font-weight: 800;
+    }
+
+    .help {
+      color: var(--muted);
+      font-size: 14px;
+      margin-top: -6px;
+      margin-bottom: 8px
+    }
+
+    .kv {
+      display: grid;
+      grid-template-columns: 220px 1fr;
+      gap: 10px;
+      padding: 10px 12px;
+      border-radius: 12px;
+      background: var(--table-row);
+      border: 1px solid var(--table-border);
+    }
+
+    .kv .k {
+      color: var(--muted);
+      font-weight: 600
+    }
+
+    .kv .v {
+      font-weight: 600
+    }
+
+    .kv+.kv {
+      margin-top: 8px
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      background: var(--table-row);
+      border-radius: 14px;
+      overflow: hidden;
+    }
+
+    thead th {
+      text-align: left;
+      font-size: 13px;
+      letter-spacing: .15em;
+      text-transform: uppercase;
+      color: var(--muted);
+      background: color-mix(in oklab, var(--card) 92%, transparent);
+      border-bottom: 1px solid var(--table-border);
+      padding: 10px 12px;
+    }
+
+    tbody td {
+      border-bottom: 1px solid var(--table-border);
+      padding: 10px 12px;
+    }
+
+    tbody tr:last-child td {
+      border-bottom: none
+    }
+
+    .footer {
+      margin-top: 40px;
+      padding-top: 18px;
+      border-top: 1px dashed color-mix(in oklab, var(--muted) 25%, transparent);
+      display: flex;
+      justify-content: space-between;
+      gap: 16px;
+      flex-wrap: wrap;
+      color: var(--muted)
+    }
+
+    .visually-hidden {
+      position: absolute !important;
+      height: 1px;
+      width: 1px;
+      overflow: hidden;
+      clip: rect(1px, 1px, 1px, 1px);
+      white-space: nowrap
+    }
+
+    :focus-visible {
+      outline: none;
+      box-shadow: 0 0 0 6px var(--ring)
+    }
+
+    @media print {
+      header {
+        display: none
+      }
+
+      .section {
+        break-inside: avoid
+      }
+
+      body {
+        background: white
+      }
+
+      a[href]:after {
+        content: ""
+      }
     }
   </style>
 </head>
+
 <body class="grid-overlay">
   <a class="visually-hidden" href="#main">Skip to content</a>
   <header>
@@ -144,28 +334,140 @@
 
 
     <section class="section" id="stakeholders">
-      <h2>STAR Story #1</h2>
-      <div class="help">Story 1.</p>
+      <h2>STAR Story #1: Pivot Under Pressure</h2>
+      <div class="help">
+        After quiet a few years of working in education, I had reached a point where I felt that I wanted to grow. I
+        enjoyed helping kids learn, but I didn’t see a sustainable future for myself in the role. I felt stuck between
+        staying in a familiar job or taking a risk on something completely different. After stepping away from teaching,
+        I decided to start working in a restaurant to stay afloat financially while I figured out my next direction. It
+        was a dramatic shift, and the pressure came from not knowing what the next stable step would look like.<br><br>
+        I understood that I needed to reassess what I actually wanted my career to look like and identify a path that
+        offered growth, intellectual challenge, and long-term stability. I needed to make a decision quickly enough to
+        avoid drifting, but thoughtfully enough that I wouldn’t repeat the same cycle of feeling misaligned. The
+        challenge was balancing immediate responsibilities with the bigger goal of pivoting into a field where I had no
+        prior professional experience.<br><br>
+        I approached the pivot the same way I would approach a complex project: by breaking it down into clear,
+        manageable decisions. I started by evaluating what I enjoyed most in both teaching and kitchen work, and found
+        that problem solving, structure, fast feedback loops, and systems thinking were areas that felt challenging, but
+        rewarding. Those patterns pointed me toward information systems. Once I made the decision, I created a plan to
+        return to school while continuing to work. I researched degree programs, mapped out financing options, and built
+        a realistic timeline that allowed me to ramp up my technical skills without burning out. Throughout the
+        transition, I kept myself motivated by setting weekly goals to complete coursework, improving my SQL skills, and
+        connect with people already working in the field I hope to join. When doubts showed up, I reframed them as
+        signals that I was doing something challenging and worthwhile.<br><br>
+        While still on my way, I feel that I’ve successfully made the pivot and am now working towards a career in
+        information systems. The process taught me how to adapt under pressure, how to make structured decisions in
+        uncertain situations, and how to maintain momentum even when the next step isn’t fully clear. Most importantly,
+        I proved to myself that I can completely change direction and still come out stronger, more focused, and more
+        capable than when I started.
+        </p>
     </section>
 
     <section class="section" id="stakeholders">
-      <h2>STAR Story #2</h2>
-      <div class="help">Story 2.</p>
+      <h2>STAR Story #2: Leading Without Authority</h2>
+      <div class="help">While working on the prep team in a busy restaurant, I didn’t hold a lead or supervisory title,
+        but our team relied heavily on prep work to keep service running smoothly. During peak seasons, we often
+        struggled with inconsistent prep quality and low stock levels on the line, which created stress for the chefs
+        and slowed down service. The kitchen was fast-paced, and there wasn’t always someone available to guide newer
+        team members or step in when things started falling behind.<br><br>
+        Even without a formal leadership role, I felt responsible for helping the team function more smoothly. The
+        challenge was to support new staff, improve day-to-day organization, and keep morale steady during high-pressure
+        rushes, while still managing my own workload and staying within the boundaries of my position.<br><br>
+        I started by paying closer attention to where breakdowns were happening. I noticed that new prep cooks often
+        weren’t confident about recipes or best prep order, so I took the initiative to walk them through our standards,
+        show them shortcuts I’d learned, and answer questions they had. Instead of waiting for the line to run out of
+        ingredients, I checked in regularly and kept a running list so I could refill items before they became an issue.
+        During rushes, I made a point of staying calm, offering quick help, and giving positive reinforcement through
+        small things like, “You’re doing great, keep going,” which helped newer staff feel supported rather than
+        overwhelmed. None of this required authority, but it did require consistency, communication, and a willingness
+        to take
+        initiative.<br><br>
+        Things became noticeably more organized, and the line cooks started experiencing fewer shortages during service.
+        New employees ramped up faster and told me that my walkthroughs made them feel more comfortable and confident.
+        The chefs began trusting me to onboard new prep cooks because they knew I was patient, thorough, and reliable.
+        This experience taught me that leadership doesn’t depend on a title, but rather comes from stepping in where
+        you’re needed, helping others feel capable, and setting a tone of calm and collaboration even when things get
+        chaotic.
+        </p>
     </section>
-    
+
     <section class="section" id="stakeholders">
-      <h2>STAR Story #3</h2>
-      <div class="help">Story 3.</p>
+      <h2>STAR Story #3: Quality Recovery</h2>
+      <div class="help">While working at a tutoring center, I noticed that sometimes the quality of instruction become
+        inconsistent across different tutors. Some were rushing through explanations, skipping key steps, or not
+        following the center’s teaching framework. This led to uneven student progress and occasional parent concerns.
+        There wasn’t a formal quality-control process in place, so these issues often went unnoticed unless someone
+        specifically observed the session.<br><br>
+        As part of my management role, I was responsible for maintaining the standard of education that families
+        expected. My goal was always to address the decline in instructional quality, support tutors who were
+        struggling, and create a more consistent experience for students without making instructors feel criticized or
+        singled out.<br><br>
+        I typically started by observing instructors more intentionally, paying attention to patterns rather than
+        one-off mistakes. Once I identified the main gaps such as rushed pacing, unclear explanations, or missing
+        follow-ups, I approached tutors individually in a supportive way. Instead of pointing out what they were doing
+        wrong, I explained why certain techniques mattered and shared practical tips I used myself, like breaking
+        problems into smaller steps or using quick comprehension checks. When tutors asked for more help, I offered to
+        sit with them and go over our methods further in depth so that they could get more practice. To reinforce
+        quality, I modeled best practices and made sure to acknowledge improvement. My goal was to make quality feel
+        achievable, not burdensome.<br><br>
+        Within a few weeks, I typically saw noticeable improvement in instructors that went through this extra training.
+        They became more confident and started asking more questions about how to handle difficult concepts. Parents
+        continued to give positive feedback, and the center ran more smoothly as a whole. This experience taught me how
+        effective coaching can be and how small, supportive interventions can raise quality across a team.
+        </p>
     </section>
-    
+
     <section class="section" id="stakeholders">
-      <h2>STAR Story #4</h2>
-      <div class="help">Story 4.</p>
+      <h2>STAR Story #4: Managing Difficult Stakeholder</h2>
+      <div class="help">As a director at the same tutoring center, I frequently worked with families who expected
+        immediate academic improvement from their children. Some parents were frustrated when they didn’t see instant
+        results and questioned whether the program was effective. Their impatience created tension, especially because
+        our approach focused on strengthening foundational skills which naturally takes time.<br><br>
+        My responsibility was to address their concerns, reset expectations, and ensure they felt confident in both the
+        process and the progress their child was making. The challenge was to build trust with families who were anxious
+        and resistant to hearing that learning requires consistency rather than quick fixes.<br><br>
+        I scheduled one-on-one meetings with each concerned family to understand the root of their frustration. I
+        listened first, letting them express their worries without interruption. Then I walked them through our teaching
+        method, explaining how skills build on each other and why mastery takes time. To make the process more tangible,
+        I pulled real progress data from our assessments and showed them exactly where their child had started, what
+        improvements we were already seeing, and what the next steps would be. I also shared success stories from other
+        students who followed the program and eventually made significant improvements. I made a point to communicate
+        calmly, avoid overly technical language, and frame everything around their child’s long-term success. After each
+        meeting, I followed up with short check-ins to keep them updated and reinforce that their child was on the right
+        track.<br><br>
+        Most families shifted from frustration to understanding, and many expressed relief after seeing concrete
+        evidence of their child’s progress. Their trust in the program grew, which led to fewer escalations and a more
+        positive working relationship overall. This experience strengthened my ability to engage resistant stakeholders
+        by combining empathy, clear communication, and data-driven transparency. It also taught me how powerful
+        consistent follow-up can be in maintaining alignment.
+        </p>
     </section>
-    
+
     <section class="section" id="stakeholders">
-      <h2>STAR Story #5</h2>
-      <div class="help">Story 5.</p>
+      <h2>STAR Story #5: Fostering Psychological Safety</h2>
+      <div class="help">In my role as a director at a tutoring center, I noticed that some instructors were hesitant to
+        share their ideas or concerns. Many were used to being told exactly what to do and worried about “doing
+        something wrong” if they made independent choices. This created an environment where people followed
+        instructions but didn’t always speak up when they had insights that could improve lessons, scheduling, or
+        student engagement.<br><br>
+        My goal was to build a culture where instructors felt comfortable contributing their ideas, raising concerns
+        early, and making everyday decisions within a clear framework. I wanted them to feel trusted and valued, not
+        micromanaged or second-guessed.<br><br>
+        I started by explicitly inviting input during team meetings, asking open-ended questions like, “What’s working
+        well?” and “What would make the sessions run more smoothly?” When someone offered an idea, I made sure to
+        respond with appreciation and curiosity, never dismissal. I also created a clear framework of expectations so
+        instructors knew the boundaries they could operate within. Inside that structure, I encouraged them to make
+        their own decisions on how to approach instruction, handle minor issues, or adjust strategies for individual
+        students.<br><br>
+        To reinforce safety, I shared examples of times when I made adjustments based on staff feedback, highlighting
+        that their perspectives genuinely shaped operations. I also made myself consistently approachable, checking in
+        casually and giving space for people to voice concerns without fear of judgment.
+        The culture of the center was noticeably positive. Instructors offered creative ideas for student engagement,
+        communicated concerns earlier, and took more ownership of their work. Team morale was consistently positive, and
+        people expressed that they felt heard, trusted, and excited to come to work. This experience taught me how
+        powerful psychological safety can be and how when people feel valued, they participate more, collaborate more,
+        and ultimately elevate the quality of the entire workplace.
+        </p>
     </section>
 
     <footer class="footer" aria-label="Footer">
@@ -178,4 +480,5 @@
     document.getElementById('year').textContent = new Date().getFullYear();
   </script>
 </body>
+
 </html>
